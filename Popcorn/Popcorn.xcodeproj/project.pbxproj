@@ -13,7 +13,41 @@
 		97AB4B372942639F003761D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97AB4B352942639F003761D9 /* Main.storyboard */; };
 		97AB4B39294263A0003761D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97AB4B38294263A0003761D9 /* Assets.xcassets */; };
 		97AB4B3C294263A0003761D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97AB4B3A294263A0003761D9 /* LaunchScreen.storyboard */; };
+		97AB4B4E2942643C003761D9 /* PopcornCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97AB4B482942643C003761D9 /* PopcornCore.framework */; };
+		97AB4B4F2942643C003761D9 /* PopcornCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97AB4B482942643C003761D9 /* PopcornCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		97AB4B7C294264EE003761D9 /* PopcornCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97AB4B482942643C003761D9 /* PopcornCore.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		97AB4B4C2942643C003761D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97AB4B242942639F003761D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97AB4B472942643C003761D9;
+			remoteInfo = PopcornCore;
+		};
+		97AB4B7D294264EE003761D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97AB4B242942639F003761D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97AB4B472942643C003761D9;
+			remoteInfo = PopcornCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		97AB4B532942643C003761D9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				97AB4B4F2942643C003761D9 /* PopcornCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		97AB4B2C2942639F003761D9 /* Popcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +58,8 @@
 		97AB4B38294263A0003761D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97AB4B3B294263A0003761D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97AB4B3D294263A0003761D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97AB4B482942643C003761D9 /* PopcornCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopcornCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97AB4B78294264EE003761D9 /* PopcornCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopcornCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +67,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97AB4B4E2942643C003761D9 /* PopcornCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97AB4B452942643C003761D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97AB4B75294264EE003761D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97AB4B7C294264EE003761D9 /* PopcornCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +92,8 @@
 		97AB4B232942639F003761D9 = {
 			isa = PBXGroup;
 			children = (
+				97AB4B492942643C003761D9 /* PopcornCore */,
+				97AB4B79294264EE003761D9 /* PopcornCoreTests */,
 				97AB4B2E2942639F003761D9 /* Popcorn */,
 				97AB4B2D2942639F003761D9 /* Products */,
 			);
@@ -49,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				97AB4B2C2942639F003761D9 /* Popcorn.app */,
+				97AB4B482942643C003761D9 /* PopcornCore.framework */,
+				97AB4B78294264EE003761D9 /* PopcornCoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,7 +123,31 @@
 			path = Popcorn;
 			sourceTree = "<group>";
 		};
+		97AB4B492942643C003761D9 /* PopcornCore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopcornCore;
+			sourceTree = "<group>";
+		};
+		97AB4B79294264EE003761D9 /* PopcornCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopcornCoreTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		97AB4B432942643C003761D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		97AB4B2B2942639F003761D9 /* Popcorn */ = {
@@ -77,15 +157,53 @@
 				97AB4B282942639F003761D9 /* Sources */,
 				97AB4B292942639F003761D9 /* Frameworks */,
 				97AB4B2A2942639F003761D9 /* Resources */,
+				97AB4B532942643C003761D9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				97AB4B4D2942643C003761D9 /* PBXTargetDependency */,
 			);
 			name = Popcorn;
 			productName = Popcorn;
 			productReference = 97AB4B2C2942639F003761D9 /* Popcorn.app */;
 			productType = "com.apple.product-type.application";
+		};
+		97AB4B472942643C003761D9 /* PopcornCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97AB4B502942643C003761D9 /* Build configuration list for PBXNativeTarget "PopcornCore" */;
+			buildPhases = (
+				97AB4B432942643C003761D9 /* Headers */,
+				97AB4B442942643C003761D9 /* Sources */,
+				97AB4B452942643C003761D9 /* Frameworks */,
+				97AB4B462942643C003761D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PopcornCore;
+			productName = PopcornCore;
+			productReference = 97AB4B482942643C003761D9 /* PopcornCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		97AB4B77294264EE003761D9 /* PopcornCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97AB4B7F294264EE003761D9 /* Build configuration list for PBXNativeTarget "PopcornCoreTests" */;
+			buildPhases = (
+				97AB4B74294264EE003761D9 /* Sources */,
+				97AB4B75294264EE003761D9 /* Frameworks */,
+				97AB4B76294264EE003761D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97AB4B7E294264EE003761D9 /* PBXTargetDependency */,
+			);
+			name = PopcornCoreTests;
+			productName = PopcornCoreTests;
+			productReference = 97AB4B78294264EE003761D9 /* PopcornCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +216,12 @@
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					97AB4B2B2942639F003761D9 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					97AB4B472942643C003761D9 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					97AB4B77294264EE003761D9 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -116,6 +240,8 @@
 			projectRoot = "";
 			targets = (
 				97AB4B2B2942639F003761D9 /* Popcorn */,
+				97AB4B472942643C003761D9 /* PopcornCore */,
+				97AB4B77294264EE003761D9 /* PopcornCoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +254,20 @@
 				97AB4B3C294263A0003761D9 /* LaunchScreen.storyboard in Resources */,
 				97AB4B39294263A0003761D9 /* Assets.xcassets in Resources */,
 				97AB4B372942639F003761D9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97AB4B462942643C003761D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97AB4B76294264EE003761D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +284,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		97AB4B442942643C003761D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97AB4B74294264EE003761D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		97AB4B4D2942643C003761D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97AB4B472942643C003761D9 /* PopcornCore */;
+			targetProxy = 97AB4B4C2942643C003761D9 /* PBXContainerItemProxy */;
+		};
+		97AB4B7E294264EE003761D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97AB4B472942643C003761D9 /* PopcornCore */;
+			targetProxy = 97AB4B7D294264EE003761D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		97AB4B352942639F003761D9 /* Main.storyboard */ = {
@@ -336,6 +503,94 @@
 			};
 			name = Release;
 		};
+		97AB4B512942643C003761D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anne.PopcornCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		97AB4B522942643C003761D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anne.PopcornCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		97AB4B80294264EE003761D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anne.PopcornCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		97AB4B81294264EE003761D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = anne.PopcornCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -353,6 +608,24 @@
 			buildConfigurations = (
 				97AB4B41294263A1003761D9 /* Debug */,
 				97AB4B42294263A1003761D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97AB4B502942643C003761D9 /* Build configuration list for PBXNativeTarget "PopcornCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97AB4B512942643C003761D9 /* Debug */,
+				97AB4B522942643C003761D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97AB4B7F294264EE003761D9 /* Build configuration list for PBXNativeTarget "PopcornCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97AB4B80294264EE003761D9 /* Debug */,
+				97AB4B81294264EE003761D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
