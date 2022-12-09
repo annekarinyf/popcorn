@@ -91,6 +91,32 @@ final class URLSessionHTTPClientTests: XCTestCase {
         )
     }
     
+    func test_getFromURL_succeedsOnHTTPURLResponseWithData() {
+        let data = anyData()
+        let response = anyHTTPURLResponse()
+        
+        let receivedSuccessResult = getSuccessResult(
+            for: DataTaskCompletion(data: data, response: response, error: nil)
+        )
+        
+        XCTAssertEqual(receivedSuccessResult?.data, data)
+        XCTAssertEqual(receivedSuccessResult?.response.url, response.url)
+        XCTAssertEqual(receivedSuccessResult?.response.statusCode, response.statusCode)
+    }
+    
+    func test_getFromURL_succeedsWithEmptyDataOnHTTPURLResponseWithNilData() {
+        let response = anyHTTPURLResponse()
+        
+        let receivedSuccessResult = getSuccessResult(
+            for: DataTaskCompletion(data: nil, response: response, error: nil)
+        )
+        
+        let emptyData = Data()
+        XCTAssertEqual(receivedSuccessResult?.data, emptyData)
+        XCTAssertEqual(receivedSuccessResult?.response.url, response.url)
+        XCTAssertEqual(receivedSuccessResult?.response.statusCode, response.statusCode)
+    }
+    
     func makeSUT(
         file: StaticString = #filePath,
         line: UInt = #line
@@ -129,7 +155,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
         taskHandler: HTTPClientDataTaskHandler = { _ in },
         file: StaticString = #filePath,
         line: UInt = #line
-    ) -> (data: Data?, response: URLResponse?)? {
+    ) -> (data: Data?, response: HTTPURLResponse)? {
         let result = getResult(for: dataTaskCompletion, taskHandler: taskHandler, file: file, line: line)
         
         switch result {

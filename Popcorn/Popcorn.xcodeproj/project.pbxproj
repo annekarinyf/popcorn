@@ -136,7 +136,8 @@
 		97AB4B492942643C003761D9 /* PopcornCore */ = {
 			isa = PBXGroup;
 			children = (
-				97AB4B8229426A1F003761D9 /* ShowsAPI */,
+				97AB4B95294373F4003761D9 /* Shared API */,
+				97AB4B8229426A1F003761D9 /* Shows API */,
 			);
 			path = PopcornCore;
 			sourceTree = "<group>";
@@ -145,18 +146,17 @@
 			isa = PBXGroup;
 			children = (
 				97AB4B8F29436709003761D9 /* Shared API Helpers */,
-				97AB4B9229436991003761D9 /* ShowsAPI */,
+				97AB4B93294373DF003761D9 /* Shared API Tests */,
+				97AB4B9229436991003761D9 /* Shows API */,
 			);
 			path = PopcornCoreTests;
 			sourceTree = "<group>";
 		};
-		97AB4B8229426A1F003761D9 /* ShowsAPI */ = {
+		97AB4B8229426A1F003761D9 /* Shows API */ = {
 			isa = PBXGroup;
 			children = (
-				97AB4B8529426A6C003761D9 /* URLSessionHttpClient.swift */,
-				97AB4B8329426A31003761D9 /* HttpClient.swift */,
 			);
-			path = ShowsAPI;
+			path = "Shows API";
 			sourceTree = "<group>";
 		};
 		97AB4B8F29436709003761D9 /* Shared API Helpers */ = {
@@ -168,12 +168,28 @@
 			path = "Shared API Helpers";
 			sourceTree = "<group>";
 		};
-		97AB4B9229436991003761D9 /* ShowsAPI */ = {
+		97AB4B9229436991003761D9 /* Shows API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Shows API";
+			sourceTree = "<group>";
+		};
+		97AB4B93294373DF003761D9 /* Shared API Tests */ = {
 			isa = PBXGroup;
 			children = (
 				97AB4B8729426AD3003761D9 /* URLSessionHTTPClientTests.swift */,
 			);
-			path = ShowsAPI;
+			path = "Shared API Tests";
+			sourceTree = "<group>";
+		};
+		97AB4B95294373F4003761D9 /* Shared API */ = {
+			isa = PBXGroup;
+			children = (
+				97AB4B8529426A6C003761D9 /* URLSessionHttpClient.swift */,
+				97AB4B8329426A31003761D9 /* HttpClient.swift */,
+			);
+			path = "Shared API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
