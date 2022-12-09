@@ -51,6 +51,14 @@ final class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertEqual(receivedError?.code, URLError.cancelled.rawValue)
     }
     
+    func test_getFromURL_failsOnRequestError() {
+        let requestError = anyNSError()
+        
+        let receivedError = getErrorResult(for: DataTaskCompletion(data: nil, response: nil, error: requestError))
+        
+        XCTAssertNotNil(receivedError)
+    }
+    
     func makeSUT(
         file: StaticString = #filePath,
         line: UInt = #line
