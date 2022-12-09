@@ -23,9 +23,9 @@
 		97AB4B91294367A0003761D9 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B90294367A0003761D9 /* SharedTestHelpers.swift */; };
 		97AB4B9829437544003761D9 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B9729437544003761D9 /* Show.swift */; };
 		97AB4B9A2943763F003761D9 /* ShowImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B992943763F003761D9 /* ShowImage.swift */; };
-		97AB4B9C2943798C003761D9 /* ShowItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B9B2943798C003761D9 /* ShowItemsMapper.swift */; };
+		97AB4B9C2943798C003761D9 /* ShowsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B9B2943798C003761D9 /* ShowsMapper.swift */; };
 		97AB4B9F29437AF1003761D9 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B9E29437AF1003761D9 /* HTTPURLResponse+StatusCode.swift */; };
-		97AB4BA129437BC1003761D9 /* ShowItemsMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4BA029437BC1003761D9 /* ShowItemsMapperTests.swift */; };
+		97AB4BA129437BC1003761D9 /* ShowsMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4BA029437BC1003761D9 /* ShowsMapperTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,9 +77,9 @@
 		97AB4B90294367A0003761D9 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		97AB4B9729437544003761D9 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		97AB4B992943763F003761D9 /* ShowImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImage.swift; sourceTree = "<group>"; };
-		97AB4B9B2943798C003761D9 /* ShowItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowItemsMapper.swift; sourceTree = "<group>"; };
+		97AB4B9B2943798C003761D9 /* ShowsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsMapper.swift; sourceTree = "<group>"; };
 		97AB4B9E29437AF1003761D9 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
-		97AB4BA029437BC1003761D9 /* ShowItemsMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowItemsMapperTests.swift; sourceTree = "<group>"; };
+		97AB4BA029437BC1003761D9 /* ShowsMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsMapperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				97AB4B9D29437AD5003761D9 /* Helpers */,
-				97AB4B9B2943798C003761D9 /* ShowItemsMapper.swift */,
+				97AB4B9B2943798C003761D9 /* ShowsMapper.swift */,
 			);
 			path = "Shows API";
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 		97AB4B9229436991003761D9 /* Shows API */ = {
 			isa = PBXGroup;
 			children = (
-				97AB4BA029437BC1003761D9 /* ShowItemsMapperTests.swift */,
+				97AB4BA029437BC1003761D9 /* ShowsMapperTests.swift */,
 			);
 			path = "Shows API";
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97AB4B9829437544003761D9 /* Show.swift in Sources */,
-				97AB4B9C2943798C003761D9 /* ShowItemsMapper.swift in Sources */,
+				97AB4B9C2943798C003761D9 /* ShowsMapper.swift in Sources */,
 				97AB4B8429426A31003761D9 /* HttpClient.swift in Sources */,
 				97AB4B9A2943763F003761D9 /* ShowImage.swift in Sources */,
 				97AB4B9F29437AF1003761D9 /* HTTPURLResponse+StatusCode.swift in Sources */,
@@ -389,7 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97AB4BA129437BC1003761D9 /* ShowItemsMapperTests.swift in Sources */,
+				97AB4BA129437BC1003761D9 /* ShowsMapperTests.swift in Sources */,
 				97AB4B8829426AD3003761D9 /* URLSessionHTTPClientTests.swift in Sources */,
 				97AB4B8E294366FB003761D9 /* URLProtocolStub.swift in Sources */,
 				97AB4B91294367A0003761D9 /* SharedTestHelpers.swift in Sources */,
