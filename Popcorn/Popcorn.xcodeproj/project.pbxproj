@@ -10,9 +10,7 @@
 		97AB4B302942639F003761D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B2F2942639F003761D9 /* AppDelegate.swift */; };
 		97AB4B322942639F003761D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B312942639F003761D9 /* SceneDelegate.swift */; };
 		97AB4B342942639F003761D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AB4B332942639F003761D9 /* ViewController.swift */; };
-		97AB4B372942639F003761D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97AB4B352942639F003761D9 /* Main.storyboard */; };
 		97AB4B39294263A0003761D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97AB4B38294263A0003761D9 /* Assets.xcassets */; };
-		97AB4B3C294263A0003761D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97AB4B3A294263A0003761D9 /* LaunchScreen.storyboard */; };
 		97AB4B4E2942643C003761D9 /* PopcornCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97AB4B482942643C003761D9 /* PopcornCore.framework */; };
 		97AB4B4F2942643C003761D9 /* PopcornCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97AB4B482942643C003761D9 /* PopcornCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		97AB4B7C294264EE003761D9 /* PopcornCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97AB4B482942643C003761D9 /* PopcornCore.framework */; };
@@ -76,9 +74,7 @@
 		97AB4B2F2942639F003761D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97AB4B312942639F003761D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		97AB4B332942639F003761D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		97AB4B362942639F003761D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97AB4B38294263A0003761D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		97AB4B3B294263A0003761D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97AB4B3D294263A0003761D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97AB4B482942643C003761D9 /* PopcornCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopcornCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97AB4B78294264EE003761D9 /* PopcornCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopcornCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,8 +93,6 @@
 		97AB4BA8294383D8003761D9 /* ShowImageDataMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageDataMapperTests.swift; sourceTree = "<group>"; };
 		97AB4BAB29438486003761D9 /* ShowsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsPresenter.swift; sourceTree = "<group>"; };
 		97AB4BB0294384C3003761D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Shows.strings; sourceTree = "<group>"; };
-		97AB4BB22943855C003761D9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		97AB4BB32943855E003761D9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		97AB4BB42943855E003761D9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Shows.strings"; sourceTree = "<group>"; };
 		97AB4BB5294386FB003761D9 /* ShowViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModelMapper.swift; sourceTree = "<group>"; };
 		97AB4BB729438720003761D9 /* ShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModel.swift; sourceTree = "<group>"; };
@@ -162,9 +156,7 @@
 				97AB4B2F2942639F003761D9 /* AppDelegate.swift */,
 				97AB4B312942639F003761D9 /* SceneDelegate.swift */,
 				97AB4B332942639F003761D9 /* ViewController.swift */,
-				97AB4B352942639F003761D9 /* Main.storyboard */,
 				97AB4B38294263A0003761D9 /* Assets.xcassets */,
-				97AB4B3A294263A0003761D9 /* LaunchScreen.storyboard */,
 				97AB4B3D294263A0003761D9 /* Info.plist */,
 			);
 			path = Popcorn;
@@ -411,9 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97AB4B3C294263A0003761D9 /* LaunchScreen.storyboard in Resources */,
 				97AB4B39294263A0003761D9 /* Assets.xcassets in Resources */,
-				97AB4B372942639F003761D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,24 +486,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		97AB4B352942639F003761D9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				97AB4B362942639F003761D9 /* Base */,
-				97AB4BB22943855C003761D9 /* pt-BR */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		97AB4B3A294263A0003761D9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				97AB4B3B294263A0003761D9 /* Base */,
-				97AB4BB32943855E003761D9 /* pt-BR */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		97AB4BB1294384C3003761D9 /* Shows.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -656,8 +628,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Popcorn/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -686,8 +656,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Popcorn/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
