@@ -16,7 +16,7 @@ final class ShowsMapperTests: XCTestCase {
         
         try samples.forEach { code in
             XCTAssertThrowsError(
-                try ShowsMapper.map(json, from: HTTPURLResponse(statusCode: code))
+                try ShowMapper.map(json, from: HTTPURLResponse(statusCode: code))
             )
         }
     }
@@ -25,14 +25,14 @@ final class ShowsMapperTests: XCTestCase {
         let invalidJSON = Data("invalid json".utf8)
         
         XCTAssertThrowsError(
-            try ShowsMapper.map(invalidJSON, from: HTTPURLResponse(statusCode: 200))
+            try ShowMapper.map(invalidJSON, from: HTTPURLResponse(statusCode: 200))
         )
     }
     
     func test_map_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() throws {
         let emptyListJSON = makeJSONValues([])
         
-        let result = try ShowsMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: 200))
+        let result = try ShowMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: 200))
         
         XCTAssertEqual(result, [])
     }
@@ -62,35 +62,8 @@ final class ShowsMapperTests: XCTestCase {
         
         let json = makeJSONValues([show1.json, show2.json])
         
-        let result = try ShowsMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+        let result = try ShowMapper.map(json, from: HTTPURLResponse(statusCode: 200))
         
         XCTAssertEqual(result, [show1.model, show2.model])
-    }
-    
-    private func makeShow(
-        id: UUID,
-        url: URL,
-        name: String? = nil,
-        status: String? = nil,
-        language: String? = nil,
-        summary: String? = nil,
-        image: ShowImage?
-    ) -> (model: Show, json: [String: Any]) {
-        let item = Show(id: id, url: url, name: name, status: status, language: language, summary: summary, image: image)
-        
-        let json: [String: Any?] = [
-            "id": id.uuidString,
-            "url": url.absoluteString,
-            "name": name,
-            "status": status,
-            "language": language,
-            "summary": summary,
-            "image": [
-                "medium": image?.medium,
-                "original": image?.original
-            ].compactMapValues { $0 }
-        ]
-        
-        return (item, json.compactMapValues { $0 })
     }
 }

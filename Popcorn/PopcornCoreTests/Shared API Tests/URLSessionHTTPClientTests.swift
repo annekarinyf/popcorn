@@ -36,21 +36,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    func test_canCancelGetFromURL_cancelsURLRequest() {
-        let exp = expectation(description: "Wait for request")
-        
-        URLProtocolStub.observeRequests { _ in exp.fulfill() }
-        
-        let cancelDataTaskHandler: HTTPClientDataTaskHandler = { task in
-            task.cancel()
-        }
-        
-        let receivedError = getErrorResult(taskHandler: cancelDataTaskHandler) as NSError?
-        wait(for: [exp], timeout: 1.0)
-        
-        XCTAssertEqual(receivedError?.code, URLError.cancelled.rawValue)
-    }
-    
     func test_getFromURL_failsOnRequestError() {
         let requestError = anyNSError()
         
@@ -126,12 +111,12 @@ final class URLSessionHTTPClientTests: XCTestCase {
         let session = URLSession(configuration: configuration)
         
         let sut = URLSessionHTTPClient(session: session)
+        trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
     
     private func getResult(
         for dataTaskCompletion: DataTaskCompletion?,
-        taskHandler: HTTPClientDataTaskHandler = { _ in },
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> HTTPClient.Result {
@@ -141,10 +126,10 @@ final class URLSessionHTTPClientTests: XCTestCase {
         let exp = expectation(description: "Wait for completion")
         
         var receivedResult: HTTPClient.Result!
-        taskHandler(sut.get(from: anyURL()) { result in
+        sut.get(from: anyURL()) { result in
             receivedResult = result
             exp.fulfill()
-        })
+        }
         
         wait(for: [exp], timeout: 1.0)
         return receivedResult
@@ -152,11 +137,10 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     private func getSuccessResult(
         for dataTaskCompletion: DataTaskCompletion? = nil,
-        taskHandler: HTTPClientDataTaskHandler = { _ in },
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> (data: Data?, response: HTTPURLResponse)? {
-        let result = getResult(for: dataTaskCompletion, taskHandler: taskHandler, file: file, line: line)
+        let result = getResult(for: dataTaskCompletion, file: file, line: line)
         
         switch result {
         case let .success(values):
@@ -169,11 +153,10 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     private func getErrorResult(
         for dataTaskCompletion: DataTaskCompletion? = nil,
-        taskHandler: HTTPClientDataTaskHandler = { _ in },
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Error? {
-        let result = getResult(for: dataTaskCompletion, taskHandler: taskHandler, file: file, line: line)
+        let result = getResult(for: dataTaskCompletion, file: file, line: line)
         
         switch result {
         case let .failure(error):

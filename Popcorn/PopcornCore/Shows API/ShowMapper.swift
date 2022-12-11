@@ -7,14 +7,14 @@
 
 import Foundation
 
-public final class ShowsMapper {
+public final class ShowMapper {
     public enum Error: Swift.Error {
         case invalidData
     }
     
     public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [Show] {
         guard response.isOK, let root = try? JSONDecoder().decode([DecodableShow].self, from: data) else {
-            throw Error.invalidData
+            throw RemoteShowLoader.Error.invalidData
         }
         
         return root.map { Show(
@@ -34,7 +34,7 @@ public final class ShowsMapper {
 }
 
 // MARK: - Decodable Models
-extension ShowsMapper {
+extension ShowMapper {
     private struct DecodableShow: Decodable {
         public let id: UUID
         public let url: URL
