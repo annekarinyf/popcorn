@@ -29,9 +29,9 @@ final class ShowCell: UITableViewCell {
     }()
     
     struct ViewModel {
-        let image: UIImage
-        let name: String
-        let summary: String
+        let image: UIImage?
+        let name: String?
+        let summary: String?
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
