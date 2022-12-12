@@ -39,13 +39,5 @@ public final class ShowCellController {
 
         return cell
     }
-    
-    func preload() {
-        //task = imageLoader.loadImageData(from: model.url) { _ in }
-    }
-
-    func cancelLoad() {
-        task?.cancel()
-    }
 }
 

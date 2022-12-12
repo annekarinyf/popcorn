@@ -8,7 +8,7 @@
 import PopcornCore
 import UIKit
 
-public final class ShowsViewController: UITableViewController, UITableViewDataSourcePrefetching {
+public final class ShowsViewController: UITableViewController {
     public var tableModel = [ShowCellController]() {
         didSet {
             DispatchQueue.main.async {
@@ -19,8 +19,6 @@ public final class ShowsViewController: UITableViewController, UITableViewDataSo
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.prefetchDataSource = self
         tableView.rowHeight = 90
     }
     
@@ -32,25 +30,7 @@ public final class ShowsViewController: UITableViewController, UITableViewDataSo
         return cellController(forRowAt: indexPath).view()
     }
     
-    public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cancelCellControllerLoad(forRowAt: indexPath)
-    }
-    
-    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach { indexPath in
-            cellController(forRowAt: indexPath).preload()
-        }
-    }
-    
-    public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach(cancelCellControllerLoad)
-    }
-    
     private func cellController(forRowAt indexPath: IndexPath) -> ShowCellController {
         return tableModel[indexPath.row]
-    }
-    
-    private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
-        cellController(forRowAt: indexPath).cancelLoad()
     }
 }
