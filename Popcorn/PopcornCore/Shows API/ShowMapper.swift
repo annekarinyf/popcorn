@@ -8,10 +8,6 @@
 import Foundation
 
 public final class ShowMapper {
-    public enum Error: Swift.Error {
-        case invalidData
-    }
-    
     public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [Show] {
         guard response.isOK, let root = try? JSONDecoder().decode([DecodableShow].self, from: data) else {
             throw RemoteShowLoader.Error.invalidData

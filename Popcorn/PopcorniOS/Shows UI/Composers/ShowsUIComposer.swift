@@ -19,6 +19,7 @@ public final class ShowsUIComposer {
         let refreshController = ShowRefreshViewController(showLoader: showLoader)
         ref = refreshController
         let showsViewController = ShowsViewController()
+        showsViewController.title = ShowsPresenter.title
         
         refreshController.onRefresh = adaptShowsToCellControllers(forwardingTo: showsViewController, loader: imageLoader)
         

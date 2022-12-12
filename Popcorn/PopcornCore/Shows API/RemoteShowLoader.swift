@@ -32,7 +32,7 @@ public final class RemoteShowLoader: ShowLoader {
             case .success((let data, let response)):
                 completion(RemoteShowLoader.map(data, response))
             case .failure:
-                completion(.failure(RemoteShowLoader.Error.connectivity))
+                completion(.failure(Error.connectivity))
             }
         }
     }

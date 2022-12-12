@@ -11,7 +11,6 @@ import XCTest
 
 final class URLSessionHTTPClientTests: XCTestCase {
     typealias DataTaskCompletion = (data: Data?, response: URLResponse?, error: Error?)
-    typealias HTTPClientDataTaskHandler = ((HTTPClientDataTask) -> Void)
     
     override func tearDown() {
         super.tearDown()

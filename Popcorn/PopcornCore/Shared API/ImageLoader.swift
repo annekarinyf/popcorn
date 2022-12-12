@@ -8,28 +8,29 @@
 import Foundation
 
 public final class ImageLoader: ImageDataLoader {
-    private let client: URLSessionHTTPClient
+    private let client: HTTPClient
     
-    public init(client: URLSessionHTTPClient) {
+    public init(client: HTTPClient) {
         self.client = client
     }
     
-    private struct ImageDataTaskWrapper: ImageDataLoaderTask {
-        let wrapped: URLSessionDataTask
-        
-        func cancel() {
-            wrapped.cancel()
-        }
+    public enum Error: Swift.Error {
+        case invalidData
+        case connectivity
     }
     
     public func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) {
         client.get(from: url) { result in
             completion(Result {
                 switch result {
-                case .success((let data, _)):
+                case .success((let data, let response)):
+                    guard response.isOK else {
+                        throw Error.invalidData
+                    }
                     return data
-                case .failure(let error):
-                    throw error
+                    
+                case .failure:
+                    throw Error.connectivity
                 }
             })
         }

@@ -32,7 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(frame: .zero)
         window?.makeKeyAndVisible()
-        window?.rootViewController = composer.showsComposed(with: showLoader, imageLoader: imageLoader)
+        let showsViewController = composer.showsComposed(with: showLoader, imageLoader: imageLoader)
+        window?.rootViewController = UINavigationController(rootViewController: showsViewController)
         window?.windowScene = windowScene
     }
     
