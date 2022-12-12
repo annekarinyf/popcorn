@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class RemoteShowLoader {
+public final class RemoteShowLoader: ShowLoader {
     private let url: URL
     private let client: HTTPClient
 

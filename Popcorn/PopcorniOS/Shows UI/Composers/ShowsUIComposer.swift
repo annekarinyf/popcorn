@@ -6,24 +6,28 @@
 //
 
 import PopcornCore
-import PopcorniOS
 
 public final class ShowsUIComposer {
-    private init() {}
     
-    public static func showsComposed(
+    var ref: ShowRefreshViewController?
+    public init() {}
+    
+    public func showsComposed(
         with showLoader: ShowLoader,
         imageLoader: ImageDataLoader
     ) -> ShowsViewController {
-        let refreshController = RefreshViewController(showLoader: showLoader)
+        let refreshController = ShowRefreshViewController(showLoader: showLoader)
+        ref = refreshController
         let showsViewController = ShowsViewController()
         
         refreshController.onRefresh = adaptShowsToCellControllers(forwardingTo: showsViewController, loader: imageLoader)
         
+        refreshController.refresh()
+        
         return showsViewController
     }
     
-    private static func adaptShowsToCellControllers(forwardingTo controller: ShowsViewController, loader: ImageDataLoader) -> ([Show]) -> Void {
+    private func adaptShowsToCellControllers(forwardingTo controller: ShowsViewController, loader: ImageDataLoader) -> ([Show]) -> Void {
         return { [weak controller] show in
             controller?.tableModel = show.map { model in
                 ShowCellController(model: model, imageLoader: loader)

@@ -36,7 +36,7 @@ public final class ShowMapper {
 // MARK: - Decodable Models
 extension ShowMapper {
     private struct DecodableShow: Decodable {
-        public let id: UUID
+        public let id: Int
         public let url: URL
         public let name: String?
         public let status: String?

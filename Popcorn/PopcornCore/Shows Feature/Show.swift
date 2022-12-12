@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Show: Hashable {
-    public let id: UUID
+    public let id: Int
     public let url: URL
     public let name: String?
     public let status: String?
@@ -17,7 +17,7 @@ public struct Show: Hashable {
     public let image: ShowImage?
     
     public init(
-        id: UUID,
+        id: Int,
         url: URL,
         name: String?,
         status: String?,

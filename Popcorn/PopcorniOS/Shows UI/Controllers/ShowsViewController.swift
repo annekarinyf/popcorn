@@ -10,13 +10,18 @@ import UIKit
 
 public final class ShowsViewController: UITableViewController, UITableViewDataSourcePrefetching {
     public var tableModel = [ShowCellController]() {
-        didSet { tableView.reloadData() }
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.prefetchDataSource = self
+        tableView.register(ShowCell.self, forCellReuseIdentifier: "Cell")
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
