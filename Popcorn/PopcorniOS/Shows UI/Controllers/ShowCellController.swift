@@ -8,7 +8,7 @@
 import PopcornCore
 import UIKit
 
-public protocol ShowCellControllerDelegate {
+protocol ShowCellControllerDelegate {
     func didRequestShow()
     func didCancelShowRequest()
 }
@@ -26,11 +26,11 @@ final class ShowCellController: NSObject {
 
 extension ShowCellController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         cell = tableView.dequeueReusableCell()
         cell?.setup(
             with: .init(
@@ -42,20 +42,20 @@ extension ShowCellController: UITableViewDataSource, UITableViewDelegate, UITabl
         return cell ?? UITableViewCell()
     }
     
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         self.cell = cell as? ShowCell
         delegate.didRequestShow()
     }
     
-    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cancelLoad()
     }
     
-    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         delegate.didRequestShow()
     }
     
-    public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         cancelLoad()
     }
     
