@@ -12,29 +12,21 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    private let url = URL(string: "https://api.tvmaze.com/shows?page=1")
-    
-    private lazy var httpClient: URLSessionHTTPClient = {
-        URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-    }()
-    
-    private lazy var showLoader: RemoteShowLoader = {
-        RemoteShowLoader(client: httpClient, url: url!)
-    }()
-    
-    private lazy var imageLoader: ImageLoader = {
-        ImageLoader(client: httpClient)
-    }()
-    
-    let composer = ShowsUIComposer()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(frame: .zero)
         window?.makeKeyAndVisible()
-        let showsViewController = composer.showsComposed(with: showLoader, imageLoader: imageLoader)
-        window?.rootViewController = UINavigationController(rootViewController: showsViewController)
+        window?.rootViewController = UINavigationController(rootViewController: makeShowsViewController())
         window?.windowScene = windowScene
+    }
+    
+    private func makeShowsViewController() -> ShowsViewController {
+        let httpClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+        let url = URL(string: "https://api.tvmaze.com/shows?page=1")!
+        let showLoader = RemoteShowLoader(client: httpClient, url: url)
+        let imageLoader = ImageLoader(client: httpClient)
+        return ShowsUIComposer.showsComposed(with: showLoader, imageLoader: imageLoader)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {}

@@ -20,7 +20,10 @@ public final class ImageLoader: ImageDataLoader {
     }
     
     public func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) {
-        client.get(from: url) { result in
+        client.get(from: url) { [weak self] result in
+            guard self != nil else {
+                return
+            }
             completion(Result {
                 switch result {
                 case .success((let data, let response)):

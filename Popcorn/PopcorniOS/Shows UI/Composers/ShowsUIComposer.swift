@@ -9,10 +9,9 @@ import Foundation
 import PopcornCore
 
 public final class ShowsUIComposer {
+    private init() {}
     
-    public init() {}
-    
-    public func showsComposed(
+    public static func showsComposed(
         with showLoader: ShowLoader,
         imageLoader: ImageDataLoader
     ) -> ShowsViewController {
@@ -25,7 +24,7 @@ public final class ShowsUIComposer {
         return showsViewController
     }
     
-    private func adaptShowsToCellControllers(forwardingTo controller: ShowsViewController, loader: ImageDataLoader) -> ([Show]) -> Void {
+    private static func adaptShowsToCellControllers(forwardingTo controller: ShowsViewController, loader: ImageDataLoader) -> ([Show]) -> Void {
         return { [weak controller] show in
             DispatchQueue.main.async {
                 controller?.tableModel = show.map { model in
