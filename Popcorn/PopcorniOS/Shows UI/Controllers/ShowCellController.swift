@@ -1,70 +1,49 @@
 //
 //  ShowCellController.swift
-//  Popcorn
+//  PopcorniOS
 //
-//  Created by Anne on 11/12/22.
+//  Created by Anne on 12/12/22.
 //
 
 import PopcornCore
 import UIKit
 
-protocol ShowCellControllerDelegate {
-    func didRequestShow()
-    func didCancelShowRequest()
+public final class ShowCellController {
+    private var task: ImageDataLoaderTask?
+    private let model: Show
+    private let imageLoader: ImageDataLoader
+
+    public init(model: Show, imageLoader: ImageDataLoader) {
+        self.model = model
+        self.imageLoader = imageLoader
+    }
+
+    func view() -> UITableViewCell {
+        let cell = ShowCell()
+        cell.nameLabel.text = model.name
+        cell.summaryLabel.text = model.summary
+
+        let loadImage = { [weak self, weak cell] in
+            guard let self = self else { return }
+
+            self.task = self.imageLoader.loadImageData(from: self.model.url) { [weak cell] result in
+                let data = try? result.get()
+                let image = data.map(UIImage.init) ?? nil
+                cell?.showImageView.image = image
+            }
+        }
+
+        loadImage()
+
+        return cell
+    }
+    
+    func preload() {
+        task = imageLoader.loadImageData(from: model.url) { _ in }
+    }
+
+    func cancelLoad() {
+        task?.cancel()
+    }
 }
 
-final class ShowCellController: NSObject {
-    private let viewModel: ShowViewModel
-    private let delegate: ShowCellControllerDelegate
-    private var cell: ShowCell?
-    
-    init(viewModel: ShowViewModel, delegate: ShowCellControllerDelegate) {
-        self.viewModel = viewModel
-        self.delegate = delegate
-    }
-}
-
-extension ShowCellController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cell = tableView.dequeueReusableCell()
-        cell?.setup(
-            with: .init(
-                image: nil,
-                name: viewModel.name,
-                summary: viewModel.summary
-            )
-        )
-        return cell ?? UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        self.cell = cell as? ShowCell
-        delegate.didRequestShow()
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cancelLoad()
-    }
-    
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        delegate.didRequestShow()
-    }
-    
-    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        cancelLoad()
-    }
-    
-    private func cancelLoad() {
-        releaseCellForReuse()
-        delegate.didCancelShowRequest()
-    }
-    
-    private func releaseCellForReuse() {
-        cell = nil
-    }
-}
