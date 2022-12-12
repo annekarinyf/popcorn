@@ -16,8 +16,8 @@ final class ShowCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = .systemBlue
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textColor = .systemPurple
         return label
     }()
     
@@ -25,12 +25,13 @@ final class ShowCell: UITableViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)
         label.textColor = .systemGray
+        label.numberOfLines = 2
         return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .systemGroupedBackground
+        backgroundColor = .white
         setupConstraints()
     }
     
@@ -44,19 +45,19 @@ final class ShowCell: UITableViewCell {
         
         let stackView = UIStackView(arrangedSubviews: [nameLabel, summaryLabel])
         stackView.distribution = .equalSpacing
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.spacing = 5
         addSubview(stackView)
         
         showImageView.translatesAutoresizingMaskIntoConstraints = false
-        showImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        showImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        showImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        showImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         showImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         showImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: showImageView.trailingAnchor, constant: 8).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 8).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
     }
 }

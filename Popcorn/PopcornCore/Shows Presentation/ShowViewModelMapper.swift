@@ -13,7 +13,8 @@ public final class ShowViewModelMapper {
             name: show.name,
             status: show.status,
             language: show.language,
-            summary: show.summary?.stripHTML()
+            summary: show.summary?.stripHTML(),
+            imageURL: show.image?.medium ?? show.image?.original
         )
     }
 }

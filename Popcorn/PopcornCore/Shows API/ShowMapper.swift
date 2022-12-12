@@ -46,7 +46,7 @@ extension ShowMapper {
     }
     
     private struct DecodableShowImage: Decodable {
-        public let medium: String?
-        public let original: String?
+        public let medium: URL?
+        public let original: URL?
     }
 }

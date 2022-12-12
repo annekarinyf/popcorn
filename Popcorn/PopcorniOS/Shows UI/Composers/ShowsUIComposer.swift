@@ -30,7 +30,7 @@ public final class ShowsUIComposer {
     private func adaptShowsToCellControllers(forwardingTo controller: ShowsViewController, loader: ImageDataLoader) -> ([Show]) -> Void {
         return { [weak controller] show in
             controller?.tableModel = show.map { model in
-                ShowCellController(model: model, imageLoader: loader)
+                ShowCellController(viewModel: ShowViewModelMapper.map(model), imageLoader: loader)
             }
         }
     }

@@ -21,7 +21,7 @@ public final class ShowsViewController: UITableViewController, UITableViewDataSo
         super.viewDidLoad()
         
         tableView.prefetchDataSource = self
-        tableView.register(ShowCell.self, forCellReuseIdentifier: "Cell")
+        tableView.rowHeight = 90
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

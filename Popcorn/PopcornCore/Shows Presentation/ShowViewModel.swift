@@ -12,11 +12,13 @@ public struct ShowViewModel {
     public let status: String?
     public let language: String?
     public let summary: String?
+    public let imageURL: URL?
     
-    public init(name: String?, status: String?, language: String?, summary: String?) {
+    public init(name: String?, status: String?, language: String?, summary: String?, imageURL: URL?) {
         self.name = name
         self.status = status
         self.language = language
         self.summary = summary
+        self.imageURL = imageURL
     }
 }

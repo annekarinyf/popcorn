@@ -8,10 +8,10 @@
 import Foundation
 
 public struct ShowImage: Hashable {
-    public let medium: String?
-    public let original: String?
+    public let medium: URL?
+    public let original: URL?
     
-    public init(medium: String?, original: String?) {
+    public init(medium: URL?, original: URL?) {
         self.medium = medium
         self.original = original
     }

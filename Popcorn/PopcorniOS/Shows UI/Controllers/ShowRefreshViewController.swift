@@ -30,7 +30,9 @@ public final class ShowRefreshViewController: NSObject {
             if let shows = try? result.get() {
                 self?.onRefresh?(shows)
             }
-            self?.view.endRefreshing()
+            DispatchQueue.main.async {
+                self?.view.endRefreshing()
+            }
         }
     }
 }

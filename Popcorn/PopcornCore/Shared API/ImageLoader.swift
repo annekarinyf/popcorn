@@ -22,8 +22,8 @@ public final class ImageLoader: ImageDataLoader {
         }
     }
     
-    public func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
-        let task = client.get(from: url) { result in
+    public func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) {
+        client.get(from: url) { result in
             completion(Result {
                 switch result {
                 case .success((let data, _)):
@@ -33,9 +33,5 @@ public final class ImageLoader: ImageDataLoader {
                 }
             })
         }
-        
-        task.resume()
-
-        return ImageDataTaskWrapper(wrapped: task)
     }    
 }
