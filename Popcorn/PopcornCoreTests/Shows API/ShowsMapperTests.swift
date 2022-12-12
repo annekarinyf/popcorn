@@ -38,32 +38,30 @@ final class ShowsMapperTests: XCTestCase {
     }
     
     func test_map_deliversItemsOn200HTTPResponseWithJSONItems() throws {
-        let show1 = makeShow(
-            id: UUID(),
+        let show1 = Show.fixture(
+            id: 1,
             url: URL(string: "http://a-url.com")!,
             name: "a name",
             status: "a status",
             language: "a language",
             summary: "a summary",
             image: .init(
-                medium: "a medium image",
-                original: "an original image"
+                medium: URL(string: "http://m-image.com")!,
+                original: URL(string: "http://o-image.com")!
             )
         )
+        let show1JSON = makeShowJSON(show: show1)
         
-        let show2 = makeShow(
-            id: UUID(),
-            url: URL(string: "http://another-url.com")!,
-            image: .init(
-                medium: nil,
-                original: nil
-            )
+        let show2 = Show.fixture(
+            id: 2,
+            url: URL(string: "http://another-url.com")!
         )
+        let show2JSON = makeShowJSON(show: show2)
         
-        let json = makeJSONValues([show1.json, show2.json])
+        let json = makeJSONValues([show1JSON, show2JSON])
         
         let result = try ShowMapper.map(json, from: HTTPURLResponse(statusCode: 200))
         
-        XCTAssertEqual(result, [show1.model, show2.model])
+        XCTAssertEqual(result, [show1, show2])
     }
 }

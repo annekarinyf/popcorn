@@ -25,8 +25,8 @@ public final class ShowMapper {
                 language: $0.language,
                 summary: $0.summary,
                 image: ShowImage(
-                    medium: $0.image?.medium,
-                    original: $0.image?.original
+                    medium: $0.image.medium,
+                    original: $0.image.original
                 )
             )
         }
@@ -38,15 +38,15 @@ extension ShowMapper {
     private struct DecodableShow: Decodable {
         public let id: Int
         public let url: URL
-        public let name: String?
-        public let status: String?
-        public let language: String?
-        public let summary: String?
-        public let image: DecodableShowImage?
+        public let name: String
+        public let status: String
+        public let language: String
+        public let summary: String
+        public let image: DecodableShowImage
     }
     
     private struct DecodableShowImage: Decodable {
         public let medium: URL?
-        public let original: URL?
+        public let original: URL
     }
 }

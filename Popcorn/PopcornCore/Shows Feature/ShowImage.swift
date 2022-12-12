@@ -9,9 +9,9 @@ import Foundation
 
 public struct ShowImage: Hashable {
     public let medium: URL?
-    public let original: URL?
+    public let original: URL
     
-    public init(medium: URL?, original: URL?) {
+    public init(medium: URL?, original: URL) {
         self.medium = medium
         self.original = original
     }

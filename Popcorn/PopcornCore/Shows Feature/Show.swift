@@ -10,20 +10,20 @@ import Foundation
 public struct Show: Hashable {
     public let id: Int
     public let url: URL
-    public let name: String?
-    public let status: String?
-    public let language: String?
-    public let summary: String?
-    public let image: ShowImage?
+    public let name: String
+    public let status: String
+    public let language: String
+    public let summary: String
+    public let image: ShowImage
     
     public init(
         id: Int,
         url: URL,
-        name: String?,
-        status: String?,
-        language: String?,
-        summary: String?,
-        image: ShowImage?
+        name: String,
+        status: String,
+        language: String,
+        summary: String,
+        image: ShowImage
     ) {
         self.id = id
         self.url = url

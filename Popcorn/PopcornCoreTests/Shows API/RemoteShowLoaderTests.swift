@@ -76,10 +76,11 @@ final class RemoteShowLoaderTests: XCTestCase {
     
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
         let (sut, client) = makeSut()
-        let show = makeShow(image: .init(medium: nil, original: nil))
+        let show = Show.fixture()
+        let showJSON = makeShowJSON(show: show)
         
-        expectLoad(sut, toCompleteWithResult: .success([show.model]), when: {
-            let json = makeJSONValues([show.json])
+        expectLoad(sut, toCompleteWithResult: .success([show]), when: {
+            let json = makeJSONValues([showJSON])
             client.complete(withStatusCode: 200, data: json)
         })
     }
