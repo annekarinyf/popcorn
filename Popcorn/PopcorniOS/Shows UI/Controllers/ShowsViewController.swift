@@ -9,17 +9,22 @@ import PopcornCore
 import UIKit
 
 public final class ShowsViewController: UITableViewController {
+    private var refreshController: ShowRefreshViewController?
     public var tableModel = [ShowCellController]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        didSet { tableView.reloadData() }
+    }
+    
+    convenience init(refreshController: ShowRefreshViewController) {
+        self.init()
+        self.refreshController = refreshController
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.rowHeight = 90
+        refreshControl = refreshController?.view
+        refreshController?.refresh()
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

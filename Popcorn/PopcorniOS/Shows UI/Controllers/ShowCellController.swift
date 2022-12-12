@@ -9,7 +9,6 @@ import PopcornCore
 import UIKit
 
 public final class ShowCellController {
-    private var task: ImageDataLoaderTask?
     private let viewModel: ShowViewModel
     private let imageLoader: ImageDataLoader
 
