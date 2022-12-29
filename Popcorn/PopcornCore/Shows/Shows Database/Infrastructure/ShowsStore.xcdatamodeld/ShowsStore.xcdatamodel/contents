@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G320" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedCache" representedClassName="ManagedCache" syncable="YES">
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="shows" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedShow" inverseName="cache" inverseEntity="ManagedShow"/>
+    </entity>
+    <entity name="ManagedShow" representedClassName="ManagedShow" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="language" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="status" attributeType="String"/>
+        <attribute name="summary" attributeType="String"/>
+        <attribute name="url" attributeType="URI"/>
+        <relationship name="cache" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedCache" inverseName="shows" inverseEntity="ManagedCache"/>
+        <relationship name="image" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedShowImage" inverseName="show" inverseEntity="ManagedShowImage"/>
+    </entity>
+    <entity name="ManagedShowImage" representedClassName="ManagedShowImage" syncable="YES">
+        <attribute name="medium" optional="YES" attributeType="URI"/>
+        <attribute name="original" attributeType="URI"/>
+        <relationship name="show" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedShow" inverseName="image" inverseEntity="ManagedShow"/>
+    </entity>
+</model>
