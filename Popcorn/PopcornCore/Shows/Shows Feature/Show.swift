@@ -34,3 +34,13 @@ public struct Show: Hashable {
         self.image = image
     }
 }
+
+public struct ShowImage: Hashable {
+    public let medium: URL?
+    public let original: URL
+    
+    public init(medium: URL?, original: URL) {
+        self.medium = medium
+        self.original = original
+    }
+}
